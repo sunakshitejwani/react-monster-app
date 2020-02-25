@@ -1,16 +1,20 @@
-import React, {Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      string : "Hello Warrior"
+    };
+  }
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Hello Sunakshi
-          </p>
+          <p>{this.state.string}</p>
           <a
             className="App-link"
             href="https://reactjs.org"
