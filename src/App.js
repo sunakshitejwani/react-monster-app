@@ -8,7 +8,8 @@ class App extends Component {
     super();
     this.state = {
       monsters: [],
-      searchField: ""
+      searchField: "",
+      title: ""
     };
   }
 
@@ -18,25 +19,23 @@ class App extends Component {
     );
   }
 
-  handleChange = (e) => {
-    this.setState({ searchField: e.target.value });
-  }
+  handleChange = e => {
+    this.setState({ searchField: e.target.value, title: e.target.value });
+  };
 
   render() {
-    const { monsters, searchField } = this.state;
-    const filteredMonsters = monsters.filter(monster => {
-      return monster.name.toLowerCase().includes(searchField.toLowerCase());
-    });
+    const { monsters, searchField, title } = this.state;
+    // const filteredMonsters = monsters.filter(monster => {
+    //   return monster.name.toLowerCase().includes(searchField.toLowerCase());
+    // });
     return (
       <div className="App">
-      <h1>
-        Monsters Rolodex
-      </h1>
+        <h1>{title}</h1>
         <SearchBox
           placeholder="Search Monsters!"
           handleChange={this.handleChange}
         />
-        <CardList monsters={filteredMonsters} />
+        <CardList monsters={monsters} />
       </div>
     );
   }
